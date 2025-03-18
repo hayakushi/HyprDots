@@ -1,65 +1,104 @@
 {
-    "layer": "top",
-    "position": "top",
-    "height": 40,
-    "margin-top": 10,
-    "modules-left": [
-        "battery",
-        "pulseaudio",
-        "backlight"
-    ],
-    "modules-center": [
-        "hyprland/workspaces"
-    ],
-    "modules-right": [
-        "network",
-        "clock"
-    ],
-    "battery": {
-        "format": "bat: {capacity}%",
-        "format-charging": "charging: {capacity}%"
-    },
-    "clock": {
-        "format": "{:%I:%M %p}",
-        "format-alt": "{:%a, %d. %b  %I:%M %p}"
-    },
-    "pulseaudio": {
-        "format": "vol: {volume}%",
-        "format-bluetooth": "blu: {volume}%",
-        "format-muted": "vol: muted",
-        "scroll-step": 1,
-        "on-click": "pavucontrol",
-        "ignored-sinks": [
-            "Easy Effects Sink"
-        ]
-    },
-    "network": {
-        "interface": "wlo1",
-        "format": "{ifname}",
-        "format-wifi": "wlo1: {essid}",
-        "format-ethernet": "eno1: {ipaddr}/{cidr}",
-        "format-disconnected": "wlo1: disconnected",
-        "max-length": 50
-    },
-    "hyprland/workspaces": {
-        "format": "{icon}",
-        "on-click": "activate",
-        "format-icons": {
-            "1": "一",
-            "2": "二",
-            "3": "三",
-            "4": "四",
-            "5": "五",
-            "6": "六",
-            "7": "七",
-            "8": "八",
-            "9": "九",
-            "10": "十",
-        },
-        "sort-by-number": true
-    },
-    "backlight": {
-        "device": "intel_backlight",
-        "format": "bl: {percent}%",
+  "height": 56,
+  "layer": "top",
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [],
+  "modules-right": [
+    "cpu",
+    "temperature",
+    "memory",
+    "network",
+    "backlight",
+    "pulseaudio",
+    "battery",
+    "clock"
+  ],
+  "pulseaudio": {
+    "scroll-step": 5,
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟   MUTED",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "format-icons": {
+      "default": [
+        " ",
+        "  ",
+        "   "
+      ]
     }
+  },
+  "hyprland/workspaces": {
+    "all-outputs": true,
+    "disable-scroll": true,
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "1": "1 .-     ",
+      "2": "2 .-     󱞁",
+      "3": "3 .-   󰎌  󰺢",
+      "4": "4 .-   󰨞  ",
+      "5": "5 .-     󰕼",
+      "6": "6 .-   󱤓  󱩗",
+      "7": "7 .-   󰵅  ",
+      "8": "8 .-   󱇣  ",
+      "9": "9 .- ",
+      "10": "10 .- "
+},
+    "sort-by-number": true
+  },
+  "hyprland/window": {
+    "format": "󰜵    {}",
+    "separate-outputs": true
+  },
+  "network": {
+    "format-wifi": "    Wi-Fi",
+    "format-ethernet": "󰈀   Ethernet",
+    "format-disconnected": "󰖪    Disconnected"
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "󰌵  {}%",
+    "interval": 1,
+    "on-scroll-up": "brightnessctl s 10%+",
+    "on-scroll-down": "brightnessctl s 10%-"
+  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 20
+    },
+    "format": "{icon}  {capacity}%",
+    "format-charging": "  {capacity}%",
+    "format-plugged": "  {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": [
+      "  ",
+      "  ",
+      "  ",
+      "  ",
+      "  "
+    ]
+  },
+  "clock": {
+    "interval": 25,
+    "format": "{:%a. %d %b. %H:%M}"
+  },
+  "cpu": {
+    "interval": 15,
+    "format": "   {}%",
+    "max-length": 10
+  },
+  "temperature": {
+    "format": " {temperatureC} °C",
+    "interval": 30,
+    "max-length": 10
+  },
+  "memory": {
+    "interval": 30,
+    "format": "   {}%",
+    "max-length": 10
+  }
 }

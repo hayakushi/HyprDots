@@ -1,4 +1,4 @@
-preload = /home/fabian/Pictures/Wallpapers/Milico.png
-wallpaper = ,/home/fabian/Pictures/Wallpapers/Milico.png
+preload = /home/fabian/Pictures/Wallpapers/LaCreatura.png
+wallpaper = ,/home/fabian/Pictures/Wallpapers/LaCreatura.png
 splash = false
-ipc = on
+ipc = off

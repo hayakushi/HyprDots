@@ -12,7 +12,7 @@ Another Hyprland Rice Based in Catppuccin Theme
 
 ### Preview
 
-![alt text](https://github.com/hayakushi/HyprDots/blob/main/source/src1.png)
+![alt text](https://github.com/hayakushi/HyprDots/tree/main/source/src1.png)
 
 - **Fetch** : [fet.sh](https://github.com/eepykate/fet.sh)
 - **Pipes** : [pipes.sh](https://github.com/pipeseroni/pipes.sh)
@@ -20,4 +20,4 @@ Another Hyprland Rice Based in Catppuccin Theme
 - **Spectrum Audio Visualizer** : [cava](https://github.com/karlstav/cava)
 - **Vtuber** : [AZKi Channel](https://youtube.com/@azki)
 
-![alt text](https://github.com/hayakushi/HyprDots/blob/main/source/src2.png)
+![alt text](https://github.com/hayakushi/HyprDots/tree/main/source/src2.png)

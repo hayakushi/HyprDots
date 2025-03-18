@@ -40,6 +40,23 @@ alias cat="bat"
 # Eza
 alias ls="eza --icons=always"
 
+# Zoxide
+eval "$(zoxide init zsh)"
+alias cd="z"
+
+# FZF
+eval "$(fzf --zsh)"
+
+# Yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
 # History
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
@@ -66,14 +83,9 @@ alias la='ls -A'
 alias l='ls -CF'
 alias vim='nvim'
 alias c='clear'
-
-# Rust
-export PATH="$HOME/.cargo/bin:$PATH"
-
-# Node Manager
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+alias reload-zsh="source ~/.zshrc"
+alias edit-zsh="nvim ~/.zshrc"
+alias clear-pls="yay --noconfirm && yay -Scc --noconfirm && yay -Sc --noconfirm && sudo rm -r .cache .zcompdump .zsh_history"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
